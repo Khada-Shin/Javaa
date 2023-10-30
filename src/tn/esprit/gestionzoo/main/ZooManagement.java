@@ -16,8 +16,12 @@ public class ZooManagement {
 
         Animal dog = new Animal("Canine", "Snoopy", 2, true);
 
-        System.out.println(myZoo.addAnimal(lion));
-        System.out.println(myZoo.addAnimal(dog));
+        try {
+            myZoo.addAnimal(lion);
+            myZoo.addAnimal(dog);
+        } catch (ZooFullException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
 
         myZoo.displayAnimals();
 
@@ -32,9 +36,7 @@ public class ZooManagement {
 
         System.out.println(myZoo);
 
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(dog);
-        myZoo.addAnimal(dog2);
+
         myZoo.displayAnimals();
 
         myZoo.setName("Belvedere Park");
@@ -52,7 +54,6 @@ public class ZooManagement {
         System.out.println(dolphin);
         System.out.println(penguin);
 
-        
         aquatic.swim();
         dolphin.swim();
         penguin.swim();
